@@ -11,16 +11,16 @@
 #DEFINE TP_CREDITO		4			
 #DEFINE GRIDMAXLIN 99999			
 
-Static _nOper 	 := 0 		//Operacao da rotina
+Static _nOper 	 := 0 		//Operacao da rotina de faturamento
 Static _nOperFat := 0 		//Operacao da rotina de refaturamento //candisani
 Static _nTpFat	 := 0
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TURA044A
-FunÁ„o chamada pelo menu respons·vel pela geraÁ„o e cancelamento de Fatura de ApuraÁıes.
+Fun√ß√£o chamada pelo menu respons√°vel pela gera√ß√£o e cancelamento de Fatura de Apura√ß√µes.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -41,10 +41,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TURA044V
-FunÁ„o chamada pelo menu respons·vel pela geraÁ„o e cancelamento de Fatura de Vendas.
+Fun√ß√£o chamada pelo menu respons√°vel pela gera√ß√£o e cancelamento de Fatura de Vendas.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -65,10 +65,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TURA044B
-FunÁ„o chamada pelo menu respons·vel pela geraÁ„o e cancelamento de Fatura de Breakage.
+Fun√ß√£o chamada pelo menu respons√°vel pela gera√ß√£o e cancelamento de Fatura de Breakage.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -89,10 +89,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TURA044C
-FunÁ„o chamada pelo menu respons·vel pela geraÁ„o e cancelamento de Fatura de CrÈdito.
+Fun√ß√£o chamada pelo menu respons√°vel pela gera√ß√£o e cancelamento de Fatura de Cr√©dito.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -113,10 +113,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TURA044
-FunÁ„o chamada pelo menu respons·vel pela geraÁ„o e cancelamento de Fatura de Vendas.
+Fun√ß√£o chamada pelo menu respons√°vel pela gera√ß√£o e cancelamento de Fatura de Vendas.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -135,11 +135,11 @@ oBrowse:SetMenudef('UTUR044')
 If _nTpFat == TP_VENDA
 	oBrowse:SetDescription(STR0001)	//"Faturas de Vendas"
 ElseIf _nTpFat == TP_APURA
-	oBrowse:SetDescription(STR0002) //"Faturas de ApuraÁıes"
+	oBrowse:SetDescription(STR0002) //"Faturas de Apura√ß√µes"
 ElseIf _nTpFat == TP_BREAK
 	oBrowse:SetDescription(STR0039) //"Faturas de Breakage"
 ElseIf _nTpFat == TP_CREDITO
-	oBrowse:SetDescription(STR0051) //"Faturas de CrÈdito"
+	oBrowse:SetDescription(STR0051) //"Faturas de Cr√©dito"
 EndIf	
 
 oBrowse:AddLegend("G84_STATUS == '1'", 'GREEN', STR0003) //"Fatura Ativa"
@@ -158,10 +158,10 @@ Return
 
 
 /*/{Protheus.doc} MenuDef
-FunÁ„o respons·vel pela montagem do menu
+Fun√ß√£o respons√°vel pela montagem do menu
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -181,10 +181,10 @@ Return (aRotina)
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Fatura
-FunÁ„o para chamado do Faturamento
+Fun√ß√£o para chamado do Faturamento
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -215,7 +215,7 @@ Return G84->(RecNo())
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} ModelDef
-FunÁ„o respons·vel pela criaÁ„o do modelo de dados.
+Fun√ß√£o respons√°vel pela cria√ß√£o do modelo de dados.
 
 @type 		Function
 @author 	Jose Domingos Caldana jr
@@ -244,42 +244,42 @@ oModel := MPFormModel():New('UTUR044_M', /*bPreValidacao*/, { |oModel| U_XValFat
 If _nTpFat == TP_VENDA
 	oModel:SetDescription( STR0001 ) //"Faturas de Vendas"
 ElseIf _nTpFat == TP_APURA
-	oModel:SetDescription( STR0002 ) //"Faturas de ApuraÁıes"
+	oModel:SetDescription( STR0002 ) //"Faturas de Apura√ß√µes"
 ElseIf _nTpFat == TP_BREAK
 	oModel:SetDescription( STR0039 ) //"Faturas de Breakage"
 ElseIf _nTpFat == TP_CREDITO
-	oModel:SetDescription( STR0051 ) //"Faturas de CrÈdito"
+	oModel:SetDescription( STR0051 ) //"Faturas de Cr√©dito"
 	oStruG84:SetProperty('G84_TIPOTI'		,MODEL_FIELD_VALID	,{|| Pertence('1|2') 	})
 EndIf
 
 oStruG85:AddField(; 					// Ord. Tipo Desc.
-					  "Acerto?"		,; 		// [01] C Titulo do campo "AtÈ IATA"
+					  "Acerto?"		,; 		// [01] C Titulo do campo "At√© IATA"
 					  "IF de Acerto",; 		// [02] C ToolTip do campo
 					  "G85_ACERTO" 	,; 		// [03] C identificador (ID) do Field
 					  "C"			,; 		// [04] C Tipo do campo
 					  1				,; 		// [05] N Tamanho do campo
 					  0 			,; 		// [06] N Decimal do campo
-					  {|| .T.}		,; 		// [07] B Code-block de validaÁ„o do campo
-					  NIL 			,; 		// [08] B Code-block de validaÁ„o When do campo
+					  {|| .T.}		,; 		// [07] B Code-block de valida√ß√£o do campo
+					  NIL 			,; 		// [08] B Code-block de valida√ß√£o When do campo
 					  NIL 			,; 		// [09] A Lista de valores permitido do campo
-					  .F. 			,; 		// [10] L Indica se o campo tem preenchimento obrigatÛrio
+					  .F. 			,; 		// [10] L Indica se o campo tem preenchimento obrigat√≥rio
 					  NIL 			,; 		// [11] B Code-block de inicializacao do campo
 					  NIL 			,; 		// [12] L Indica se trata de um campo chave
-					  NIL 			,; 		// [13] L Indica se o campo pode receber valor em uma operaÁ„o de update.
-					 .T.) 				   	// [14] L Indica se o campo È virtual
+					  NIL 			,; 		// [13] L Indica se o campo pode receber valor em uma opera√ß√£o de update.
+					 .T.) 				   	// [14] L Indica se o campo √© virtual
 					 
 oStruG85:AddField("",;						// Titulo //"Check"
-						"Valor aux",;					// DescriÁ„o Tooltip 
+						"Valor aux",;					// Descri√ß√£o Tooltip 
 						"G85_VLRAUX",;				// Nome do Campo
 						"N",;						// Tipo de dado do campo
 						16,;						// Tamanho do campo
 						2,;							// Tamanho das casas decimais
-						,;							// Bloco de ValidaÁ„o do campo
-						,;							// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						,;							// Bloco de Valida√ß√£o do campo
+						,;							// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 					 
@@ -324,7 +324,7 @@ Return oModel
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} ViewDef
-FunÁ„o respons·vel pela definiÁ„o da vis„o da ApuraÁ„o de Receita de Clientes.
+Fun√ß√£o respons√°vel pela defini√ß√£o da vis√£o da Apura√ß√£o de Receita de Clientes.
 
 @type 		Function
 @author 	Jose Domingos Caldana jr
@@ -343,7 +343,7 @@ Local oStruTot  := FWCalcStruct(oModel:GetModel('TOT_CALC' ))
 
 oView:SetModel( oModel )
 
-//RemoÁ„o de campos da G84
+//Remo√ß√£o de campos da G84
 oStruG84:RemoveField('G84_FILIAL')
 oStruG84:RemoveField('G84_PREFIX')
 oStruG84:RemoveField('G84_NUMFAT')
@@ -364,7 +364,7 @@ If _nTpFat <> TP_CREDITO
 	oStruG84:RemoveField('G84_TIPOTI')
 EndIf
 
-//RemoÁ„o de campos da G85
+//Remo√ß√£o de campos da G85
 oStruG85:RemoveField('G85_FILIAL')
 oStruG85:RemoveField('G85_PREFIX')
 oStruG85:RemoveField('G85_NUMFAT')
@@ -408,7 +408,7 @@ oView:SetOwnerView('G85_DETAIL','ID_PASTA_ITF')
 If _nTpFat == TP_VENDA .Or. _nTpFat == TP_BREAK .Or. _nTpFat == TP_CREDITO
 	oView:EnableTitleView("G85_DETAIL", STR0016 ) //"Itens de Venda"
 ElseIf _nTpFat == TP_APURA
-	oView:EnableTitleView("G85_DETAIL", STR0017 ) //"ApuraÁıes"
+	oView:EnableTitleView("G85_DETAIL", STR0017 ) //"Apura√ß√µes"
 EndIf
 
 oView:AddField('VIEW_CALC_1', oStruTot, 'TOT_CALC')
@@ -423,10 +423,10 @@ Return oView
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44VLDMOD
-FunÁ„o respons·vel pela validaÁ„o do cancelamento e carga dos itens para faturamento.
+Fun√ß√£o respons√°vel pela valida√ß√£o do cancelamento e carga dos itens para faturamento.
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -436,7 +436,7 @@ User Function X44VlMod(oModel,lTodasFil,cSelFil,cSegNeg,cOperac,cMoeda)
 Local lRet := .T. 
 
 //+-----------------------------------------------------
-// Chama funÁ„o de parametros e seleÁ„o de itens para o fechamento
+// Chama fun√ß√£o de parametros e sele√ß√£o de itens para o fechamento
 //+-----------------------------------------------------
 If _nOper == OPER_FATURA .Or. _nOperFat == OPER_REFATU    
 		lRet := U_X44ParFe(@lTodasFil,@cSelFil,@cSegNeg,@cOperac,@cMoeda)
@@ -455,7 +455,7 @@ Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44ParFec
-FunÁ„o respons·vel por validar o pergunte da rotina e chamar a funÁ„o de seleÁ„o de itens.
+Fun√ß√£o respons√°vel por validar o pergunte da rotina e chamar a fun√ß√£o de sele√ß√£o de itens.
 
 @type 		Function
 @author 	Jose Domingos Caldana Jr
@@ -476,17 +476,17 @@ If _nOper == OPER_FATURA .OR. _nOperFat == OPER_REFATU
 		cTitulo	:= STR0001 	//"Faturas de Vendas"
 	ElseIf _nTpFat == TP_APURA
 		cPerg 		:= 'TURA44A'
-		cTitulo	:= STR0002		//"Faturas de ApuraÁıes"
+		cTitulo	:= STR0002		//"Faturas de Apura√ß√µes"
 	ElseIf _nTpFat == TP_BREAK
 		cPerg 		:= 'TURA44B'
 		cTitulo	:= STR0039 	//"Faturas de Breakage"
 	ElseIf _nTpFat == TP_CREDITO
 		cPerg 		:= 'TURA44C'
-		cTitulo	:= STR0051 	//"Faturas de CrÈdito"
+		cTitulo	:= STR0051 	//"Faturas de Cr√©dito"
 	EndIf	
 			
 	//+----------------------------------------------------
-	//|	Apresenta do pergunte de seleÁ„o de Itens para faturamento
+	//|	Apresenta do pergunte de sele√ß√£o de Itens para faturamento
 	//+----------------------------------------------------
 	If _nOperFat == OPER_REFATU //candisani
 		Pergunte(cPerg,.F.,cTitulo)
@@ -498,7 +498,7 @@ If _nOper == OPER_FATURA .OR. _nOperFat == OPER_REFATU
 					cSegNeg	:= ""
 					cOperac	:= ""
 				If !Pergunte(cPerg,.T.,cTitulo)
-					Help( , , "TURA044", , STR0019, 1, 0,,,,,,{STR0041 + STR0008}) //"Para selecionar novos itens, clique no bot„o "//"Faturar"
+					Help( , , "TURA044", , STR0019, 1, 0,,,,,,{STR0041 + STR0008}) //"Para selecionar novos itens, clique no bot√£o "//"Faturar"
 					Return .F.
 				EndIf
 			EndDo
@@ -507,7 +507,7 @@ If _nOper == OPER_FATURA .OR. _nOperFat == OPER_REFATU
 	EndIf
 	
 	If !lRet
-		Help( , , "TURA044", , STR0019, 1, 0,,,,,,{STR0041 + STR0008}) //"Para selecionar novos itens, clique no bot„o "//"Faturar"	
+		Help( , , "TURA044", , STR0019, 1, 0,,,,,,{STR0041 + STR0008}) //"Para selecionar novos itens, clique no bot√£o "//"Faturar"	
 	EndIf
 EndIf
 
@@ -516,7 +516,7 @@ Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Fecham
-FunÁ„o respons·vel por processar o Fechamento
+Fun√ß√£o respons√°vel por processar o Fechamento
 
 @type 		Function
 @author 	Jose Domingos Caldana Jr
@@ -559,10 +559,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44VldPg
-FunÁ„o para validaÁ„o do pergunte TURA044
+Fun√ß√£o para valida√ß√£o do pergunte TURA044
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -585,7 +585,7 @@ If _nTpFat == TP_VENDA
 	lEvento	:= MV_PAR07 == 1
 	lLazer		:= MV_PAR08 == 1
 	
-	//SeleÁ„o de OperaÁ„oes
+	//Sele√ß√£o de Opera√ß√£oes
 	If MV_PAR14 == 1
 		aOper := TLBoxOper()
 		For nX := 1 to Len(aOper)
@@ -596,7 +596,7 @@ If _nTpFat == TP_VENDA
 		Next
 		cOperac := Left(cOperac, Len(cOperac) - 1) 
 		If nQtd == 0
-			Help(" ",1,"TURA044_OPERAC",,STR0021,1,0) //"Deve ser selecionada pelo menos uma OperaÁ„o"
+			Help(" ",1,"TURA044_OPERAC",,STR0021,1,0) //"Deve ser selecionada pelo menos uma Opera√ß√£o"
 			Return .F.
 		ElseIf nQtd == 1
 			cOperac := "= '"+ AllTrim(cOperac)+"'"	
@@ -611,7 +611,7 @@ ElseIf _nTpFat == TP_APURA
 	lEvento	:= MV_PAR10 == 1
 	lLazer		:= MV_PAR11 == 1
 
-	//SeleÁ„o de Moedas
+	//Sele√ß√£o de Moedas
 	If MV_PAR12 == 1
 		aMoeda := TLBoxMoed()
 		For nX := 1 to Len(aMoeda)
@@ -645,7 +645,7 @@ ElseIf _nTpFat == TP_CREDITO
 
 EndIf
 
-//SeleÁ„o de Filiais
+//Sele√ß√£o de Filiais
 If lSelFil
 	aSelFil := AdmGetFil(@lTodasFil,,"G4C")
 	If Len(aSelFil) <= 0
@@ -676,7 +676,7 @@ If Len(cSegNeg) > 0
 		cSegNeg := "= '"+ cSegNeg +"'"
 	Endif
 Else
-	Help(" ",1,"TURA044_SEGNEG",,STR0023,1,0)//"Deve ser selecionado pelo menos um Segmento de NegÛcio"
+	Help(" ",1,"TURA044_SEGNEG",,STR0023,1,0)//"Deve ser selecionado pelo menos um Segmento de Neg√≥cio"
 	Return .F.
 EndIf
 
@@ -685,10 +685,10 @@ Return .T.
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44SelVen
-FunÁ„o respons·vel pela seleÁ„o dos Clientes com Itens Financeiro liberado para Faturamento
+Fun√ß√£o respons√°vel pela sele√ß√£o dos Clientes com Itens Financeiro liberado para Faturamento
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -777,7 +777,7 @@ Local nAuxRegVen  := ""
 Local nAuxItem	  := "" 
 
 /*
-//verificar se È Faturamento ou refaturamento
+//verificar se √© Faturamento ou refaturamento
 If _nOper == OPER_FATURA //candisani
 */	
 	//+---------------------------------------------------
@@ -1008,7 +1008,7 @@ If _nOper == OPER_FATURA //candisani
 			G4C->(DbsetOrder(4))
 			G4C->(DbSeek((cAliasITF)->(G4CFILIAL)+(cAliasITF)->(NUMID)+(cAliasITF)->(IDITEM)+(cAliasITF)->(NUMSEQ)+(cAliasITF)->(IDIF)+cConinu))
 			While !lTravou .And. nOpc == 1 
-			 	//Verifica se o item ainda continua aberto para faturamento, pode ter sido faturado em outra sess„o
+			 	//Verifica se o item ainda continua aberto para faturamento, pode ter sido faturado em outra sess√£o
 				If G4C->G4C_STATUS == '3'
 					If !lMarcar .Or. G4C->(DbRLock(G4C->(Recno())))
 					
@@ -1216,7 +1216,7 @@ If _nOper == OPER_FATURA //candisani
 											
 											EndIf
 										Else
-											nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G4C"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar seleÁ„o"
+											nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G4C"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar sele√ß√£o"
 										EndIf	
 									EndDo
 								
@@ -1231,10 +1231,10 @@ If _nOper == OPER_FATURA //candisani
 							TurHelp( "RV: "+G4C->G4C_NUMID+" Item: "+G4C->G4C_IDITEM+" Seq.: "+G4C->G4C_NUMSEQ+ STR0062, STR0060, STR0061)
 						EndIf
 					Else
-						nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G4C"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar seleÁ„o"
+						nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G4C"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar sele√ß√£o"
 					EndIf
 				Else
-					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item financeiro com status diferente de liberado.'###'Outro processo alterou o item financeiro enquanto este n„o estava marcado, n„o ser· permitido faturar este item.'
+					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item financeiro com status diferente de liberado.'###'Outro processo alterou o item financeiro enquanto este n√£o estava marcado, n√£o ser√° permitido faturar este item.'
 					nOpc := 3
 				EndIf	
 			EndDo
@@ -1283,8 +1283,8 @@ ElseIf _nOperFat == OPER_REFATU //candisani
 	oModelG84:LoadValue("G84_STATUS", "1")	
 	oModelG84:LoadValue("G84_TPFAT" , cTpFat)	
 	
-	//verificar os itens j· faturados na G85
-	//verificar se os itens cancelados j· foram faturados em outra nota
+	//verificar os itens j√° faturados na G85
+	//verificar se os itens cancelados j√° foram faturados em outra nota
 	
 	G85->(DbSetOrder(1))
 	If G85->(DbSeek(cFilialG84 + cPrefix + cNumFat))	
@@ -1341,7 +1341,7 @@ ElseIf _nOperFat == OPER_REFATU //candisani
 		Enddo
 	EndIf
 
-	//gravaÁ„o do item G85 para os itens n„o faturados
+	//grava√ß√£o do item G85 para os itens n√£o faturados
 	nItemG85 := 1	
 	For nX:= 1 to len(aItemG85)
 		//posicionar na GC4
@@ -1438,10 +1438,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44SelApu
-FunÁ„o respons·vel pela seleÁ„o dos Clientes com Itens Financeiro liberado para ApuraÁ„o
+Fun√ß√£o respons√°vel pela sele√ß√£o dos Clientes com Itens Financeiro liberado para Apura√ß√£o
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -1736,16 +1736,16 @@ While (cAliasITF)->(!EOF())
 	
 				EndIf
 			Else
-				U_TurHelp( "ApuraÁ„o: "+(cAliasITF)->(CODAPU)+STR0062,;
+				U_TurHelp( "Apura√ß√£o: "+(cAliasITF)->(CODAPU)+STR0062,;
 						  STR0063, STR0061 )
 			EndIf
 			
 		Else
-			nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G81"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar seleÁ„o"
+			nOpc := AVISO(STR0033 ,STR0034 + STR0035 + TA44LogBlq("G81"), { STR0036, STR0037, STR0038}, 2) //"Iten Financeiro em uso" //"Tentar Novamente"//"Pular Item"// "Abortar sele√ß√£o"
 		EndIf
 	
 		Else
-			Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item financeiro com status diferente de liberado.'###'Outro processo alterou o item financeiro enquanto este n„o estava marcado, n„o ser· permitido faturar este item.'
+			Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item financeiro com status diferente de liberado.'###'Outro processo alterou o item financeiro enquanto este n√£o estava marcado, n√£o ser√° permitido faturar este item.'
 			nOpc := 3
 		EndIf
 		
@@ -1786,10 +1786,10 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} T44StruXXX
-FunÁ„o respons·vel por criar a estrutura do cabeÁalho do fechamento
+Fun√ß√£o respons√°vel por criar a estrutura do cabe√ßalho do fechamento
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -1805,32 +1805,32 @@ If lModel
 	oStruXXX := FWFormModelStruct():New()
 	oStruXXX:AddTable("XXX",{},STR0010)
 	oStruXXX:AddField(STR0010,;					// Titulo //"Faturamento"
-						STR0010,;					// DescriÁ„o Tooltip 
+						STR0010,;					// Descri√ß√£o Tooltip 
 						"XXX_FECHA",;				// Nome do Campo
 						"C",;						// Tipo de dado do campo
 						14,;						// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| .T.},;					// Bloco de ValidaÁ„o do campo
-						Nil,;						// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						Nil,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| .T.},;					// Bloco de Valida√ß√£o do campo
+						Nil,;						// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						Nil,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 
-	oStruXXX:AddField(STR0025,;				// Titulo //"Usu·rio"
-						STR0025,;				// DescriÁ„o Tooltip 
+	oStruXXX:AddField(STR0025,;				// Titulo //"Usu√°rio"
+						STR0025,;				// Descri√ß√£o Tooltip 
 						"XXX_USER",;				// Nome do Campo
 						"C",;						// Tipo de dado do campo
 						6,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| .T.},;					// Bloco de ValidaÁ„o do campo
-						Nil,;						// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						{|| __cUserId},; 				// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| .T.},;					// Bloco de Valida√ß√£o do campo
+						Nil,;						// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						{|| __cUserId},; 				// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	
@@ -1843,36 +1843,36 @@ Else
 	oStruXXX:AddField("XXX_FECHA",;				// [01] C Nome do Campo
 					"01",;							// [02] C Ordem
 					STR0010,; 						// [03] C Titulo do campo //Faturamento
-					STR0010,; 						// [04] C DescriÁ„o do campo //Faturamento
+					STR0010,; 						// [04] C Descri√ß√£o do campo //Faturamento
 					{STR0010} ,;					// [05] A Array com Help //Faturamento
 					"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 					"@!",;							// [07] C Picture
 					NIL,; 							// [08] B Bloco de Picture Var
 					"",; 							// [09] C Consulta F3
-					.F.,; 							// [10] L Indica se o campo È edit·vel
+					.F.,; 							// [10] L Indica se o campo √© edit√°vel
 					NIL, ; 						// [11] C Pasta do campo
 					NIL,; 							// [12] C Agrupamento do campo
 					{},; 							// [13] A Lista de valores permitido do campo (Combo)
-					NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+					NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 					NIL,;	 						// [15] C Inicializador de Browse
-					.T.) 							// [16] L Indica se o campo È virtual
+					.T.) 							// [16] L Indica se o campo √© virtual
 					
 	oStruXXX:AddField("XXX_USER",;				// [01] C Nome do Campo
 					"02",;							// [02] C Ordem
-					STR0025,; 						// [03] C Titulo do campo //Usu·rio
-					STR0025,; 						// [04] C DescriÁ„o do campo //Usu·rio
-					{STR0025} ,;					// [05] A Array com Help //Usu·rio
+					STR0025,; 						// [03] C Titulo do campo //Usu√°rio
+					STR0025,; 						// [04] C Descri√ß√£o do campo //Usu√°rio
+					{STR0025} ,;					// [05] A Array com Help //Usu√°rio
 					"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 					"@!",;							// [07] C Picture
 					NIL,; 							// [08] B Bloco de Picture Var
 					"",; 							// [09] C Consulta F3
-					.F.,; 							// [10] L Indica se o campo È edit·vel
+					.F.,; 							// [10] L Indica se o campo √© edit√°vel
 					NIL, ; 						// [11] C Pasta do campo
 					NIL,; 							// [12] C Agrupamento do campo
 					{},; 							// [13] A Lista de valores permitido do campo (Combo)
-					NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+					NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 					NIL,;	 						// [15] C Inicializador de Browse
-					.T.) 							// [16] L Indica se o campo È virtual
+					.T.) 							// [16] L Indica se o campo √© virtual
 Endif
 
 Return oStruXXX
@@ -1880,10 +1880,10 @@ Return oStruXXX
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} T44StruG84
-FunÁ„o respons·vel por criar a estrutura da G84
+Fun√ß√£o respons√°vel por criar a estrutura da G84
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -1897,62 +1897,62 @@ If lModel
 	//Estrutra do modelo	
 	oStruG84 := FWFormStruct(1, 'G84', /*bAvalCampo*/, .F./*lViewUsado*/)
 	oStruG84:AddField(	"",;					// Titulo
-						STR0026,;					// DescriÁ„o Tooltip //"Check"
+						STR0026,;					// Descri√ß√£o Tooltip //"Check"
 						"G84_OK",;					// Nome do Campo
 						"L",;						// Tipo de dado do campo
 						1,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| U_XChkAll()},;			// Bloco de ValidaÁ„o do campo
-						{|| .T.},;					// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| U_XChkAll()},;			// Bloco de Valida√ß√£o do campo
+						{|| .T.},;					// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	
 	oStruG84:AddField(STR0027,;					// Titulo //"Corpor."
-						STR0028,;					// DescriÁ„o Tooltip //"Corporativo"
+						STR0028,;					// Descri√ß√£o Tooltip //"Corporativo"
 						"G84_CORP",;				// Nome do Campo
 						"L",;						// Tipo de dado do campo
 						1,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| .T.},;					// Bloco de ValidaÁ„o do campo
-						{|| .T.},;					// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| .T.},;					// Bloco de Valida√ß√£o do campo
+						{|| .T.},;					// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	
 	oStruG84:AddField(STR0029,;					// Titulo //"Eventos"
-						STR0029,;					// DescriÁ„o Tooltip  //"Eventos"
+						STR0029,;					// Descri√ß√£o Tooltip  //"Eventos"
 						"G84_EVENT",;				// Nome do Campo
 						"L",;						// Tipo de dado do campo
 						1,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| .T.},;					// Bloco de ValidaÁ„o do campo
-						{|| .T.},;					// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| .T.},;					// Bloco de Valida√ß√£o do campo
+						{|| .T.},;					// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	
 	oStruG84:AddField(STR0030,;					// Titulo //"Lazer"
-						STR0030,;					// DescriÁ„o Tooltip //"Lazer"
+						STR0030,;					// Descri√ß√£o Tooltip //"Lazer"
 						"G84_LAZER",;				// Nome do Campo
 						"L",;						// Tipo de dado do campo
 						1,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| .T.},;					// Bloco de ValidaÁ„o do campo
-						{|| .T.},;					// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| .T.},;					// Bloco de Valida√ß√£o do campo
+						{|| .T.},;					// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 			
@@ -1962,70 +1962,70 @@ Else
 	oStruG84:AddField("G84_OK",;						// [01] C Nome do Campo
 						"01",;							// [02] C Ordem
 						"",; 							// [03] C Titulo do campo //"Check"
-						STR0026,; 						// [04] C DescriÁ„o do campo //"Check"
+						STR0026,; 						// [04] C Descri√ß√£o do campo //"Check"
 						{STR0026} ,;					// [05] A Array com Help //"Check"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						NIL,; 							// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.T.,; 							// [10] L Indica se o campo È edit·vel
+						.T.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 						// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 	
 	oStruG84:AddField("G84_CORP",;					// [01] C Nome do Campo
 						"97",;							// [02] C Ordem
 						STR0027,; 						// [03] C Titulo do campo //"Corpor."
-						STR0028,; 						// [04] C DescriÁ„o do campo //"Corporativo"
+						STR0028,; 						// [04] C Descri√ß√£o do campo //"Corporativo"
 						{STR0028} ,;					// [05] A Array com Help //"Corporativo"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						NIL,; 							// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.F.,; 							// [10] L Indica se o campo È edit·vel
+						.F.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 						// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 						
 	oStruG84:AddField("G84_EVENT",;					// [01] C Nome do Campo
 						"98",;							// [02] C Ordem
 						STR0029,; 						// [03] C Titulo do campo //"Eventos"
-						STR0029,; 						// [04] C DescriÁ„o do campo //"Eventos"
+						STR0029,; 						// [04] C Descri√ß√£o do campo //"Eventos"
 						{STR0029} ,;					// [05] A Array com Help //"Eventos"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						NIL,; 							// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.F.,; 							// [10] L Indica se o campo È edit·vel
+						.F.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 						// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 						
 	oStruG84:AddField("G84_LAZER",;					// [01] C Nome do Campo
 						"99",;							// [02] C Ordem
 						STR0030,; 						// [03] C Titulo do campo //"Lazer"
-						STR0030,; 						// [04] C DescriÁ„o do campo //"Lazer"
+						STR0030,; 						// [04] C Descri√ß√£o do campo //"Lazer"
 						{STR0030} ,;					// [05] A Array com Help //"Lazer"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						NIL,; 							// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.F.,; 							// [10] L Indica se o campo È edit·vel
+						.F.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 						// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 Endif
 
 Return oStruG84
@@ -2033,10 +2033,10 @@ Return oStruG84
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} T44StruG85
-FunÁ„o respons·vel por criar a estrutura da G85
+Fun√ß√£o respons√°vel por criar a estrutura da G85
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2050,32 +2050,32 @@ If lModel
 	//Estrutra do modelo	
 	oStruG85 := FWFormStruct(1, 'G85', /*bAvalCampo*/, .F./*lViewUsado*/)
 	oStruG85:AddField("",;						// Titulo //"Check"
-						STR0026,;					// DescriÁ„o Tooltip 
+						STR0026,;					// Descri√ß√£o Tooltip 
 						"G85_OK",;					// Nome do Campo
 						"L",;						// Tipo de dado do campo
 						1,;							// Tamanho do campo
 						0,;							// Tamanho das casas decimais
-						{|| U_XChkFil()},;		// Bloco de ValidaÁ„o do campo
-						{|| U_X44VldChk()},;		// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						{|| U_XChkFil()},;		// Bloco de Valida√ß√£o do campo
+						{|| U_X44VldChk()},;		// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	/*					
 	oStruG85:AddField("",;						// Titulo //"Check"
-						"Valor aux",;					// DescriÁ„o Tooltip 
+						"Valor aux",;					// Descri√ß√£o Tooltip 
 						"G85_VLRAUX",;				// Nome do Campo
 						"N",;						// Tipo de dado do campo
 						16,;						// Tamanho do campo
 						2,;							// Tamanho das casas decimais
-						,;							// Bloco de ValidaÁ„o do campo
-						,;							// Bloco de EdiÁ„o do campo
-						{},; 						// OpÁıes do combo
-						.F.,; 						// ObrigatÛrio
-						NIL,; 						// Bloco de InicializaÁ„o Padr„o
-						.F.,; 						// Campo È chave
+						,;							// Bloco de Valida√ß√£o do campo
+						,;							// Bloco de Edi√ß√£o do campo
+						{},; 						// Op√ß√µes do combo
+						.F.,; 						// Obrigat√≥rio
+						NIL,; 						// Bloco de Inicializa√ß√£o Padr√£o
+						.F.,; 						// Campo √© chave
 						.F.,; 						// Atualiza?
 						.T.) 						// Virtual?
 	*/
@@ -2085,36 +2085,36 @@ Else
 	oStruG85:AddField("G85_OK",;					// [01] C Nome do Campo
 						"01",;							// [02] C Ordem
 						"",; 							// [03] C Titulo do campo //
-						STR0026,; 						// [04] C DescriÁ„o do campo //"Check"
+						STR0026,; 						// [04] C Descri√ß√£o do campo //"Check"
 						{STR0026} ,;					// [05] A Array com Help //"Check"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						NIL,; 							// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.T.,; 							// [10] L Indica se o campo È edit·vel
+						.T.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 							// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 	/*
 	oStruG85:AddField("G85_VLRAUX",;					// [01] C Nome do Campo
 						"01",;							// [02] C Ordem
 						"",; 							// [03] C Titulo do campo //
-						"VLRAUX",; 						// [04] C DescriÁ„o do campo //"Check"
+						"VLRAUX",; 						// [04] C Descri√ß√£o do campo //"Check"
 						"VLRAUX",;						// [05] A Array com Help //"Check"
 						"GET",; 						// [06] C Tipo do campo - GET, COMBO OU CHECK
 						"@!",;							// [07] C Picture
 						"@E 9,999,999,999,999.99",;		// [08] B Bloco de Picture Var
 						"",; 							// [09] C Consulta F3
-						.T.,; 							// [10] L Indica se o campo È edit·vel
+						.T.,; 							// [10] L Indica se o campo √© edit√°vel
 						NIL, ; 							// [11] C Pasta do campo
 						NIL,; 							// [12] C Agrupamento do campo
 						{},; 							// [13] A Lista de valores permitido do campo (Combo)
-						NIL,; 							// [14] N Tamanho Maximo da maior opÁ„o do combo
+						NIL,; 							// [14] N Tamanho Maximo da maior op√ß√£o do combo
 						NIL,;	 						// [15] C Inicializador de Browse
-						.T.) 							// [16] L Indica se o campo È virtual
+						.T.) 							// [16] L Indica se o campo √© virtual
 	*/
 
 Endif
@@ -2123,10 +2123,10 @@ Return oStruG85
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44ChkFil
-FunÁ„o marcaÁ„o dos itens da G85
+Fun√ß√£o marca√ß√£o dos itens da G85
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2164,30 +2164,30 @@ Else
 			If G4C->(DbSeek(xFilial("G4C",oModelG85:GetValue("G85_FILREF"))+oModelG85:GetValue("G85_REGVEN")+oModelG85:GetValue("G85_ITVEND")+oModelG85:GetValue("G85_SEQIV")+oModelG85:GetValue("G85_IDIF")))
 				If G4C->G4C_STATUS <> '3'
 					lRet := .F.
-					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item selecionado est· com status diferente de liberado.'###'Outro processo alterou o item enquanto este n„o estava marcado, n„o ser· permitido faturar este item.'
+					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item selecionado est√° com status diferente de liberado.'###'Outro processo alterou o item enquanto este n√£o estava marcado, n√£o ser√° permitido faturar este item.'
 				
 				ElseIf !G4C->(DbRLock(G4C->(Recno())))
 					lRet := .F.
-					Help(,,"TURA044_LOCK",,STR0053,1,0,,,,,,{STR0054})		//"O item selecionado est· sendo utilizado no momento"	"Aguarde a liberaÁ„o"
+					Help(,,"TURA044_LOCK",,STR0053,1,0,,,,,,{STR0054})		//"O item selecionado est√° sendo utilizado no momento"	"Aguarde a libera√ß√£o"
 				
 				ElseIf TA44VldFA(oModelG85:GetValue("G85_REGVEN"))
 					lRet := .F.
-					Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n„o est· liberado para faturamento.",1,0,,,,,,)	
+					Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n√£o est√° liberado para faturamento.",1,0,,,,,,)	
 				EndIf
 			EndIf	
 		Else
 			If G81->(DbSeek(xFilial("G81",oModelG85:GetValue("G85_FILREF"))+oModelG85:GetValue("G85_IDIFA")))
 				If G81->G81_STATUS <> '1'
 					lRet := .F.
-					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item selecionado est· com status diferente de liberado.'###'Outro processo alterou o item enquanto este n„o estava marcado, n„o ser· permitido faturar este item.'
+					Help(,,"TURA044_LOCK",,STR0056,1,0,,,,,,{STR0057})	//'Item selecionado est√° com status diferente de liberado.'###'Outro processo alterou o item enquanto este n√£o estava marcado, n√£o ser√° permitido faturar este item.'
 	
 				ElseIf !G81->(DbRLock(G81->(Recno())))
 					lRet := .F.
-					Help(,,"TURA044_LOCK",,STR0053,1,0,,,,,,{STR0054})		//"O item selecionado est· sendo utilizado no momento"	"Aguarde a liberaÁ„o"
+					Help(,,"TURA044_LOCK",,STR0053,1,0,,,,,,{STR0054})		//"O item selecionado est√° sendo utilizado no momento"	"Aguarde a libera√ß√£o"
 				
 				ElseIf TA44VldFA(oModelG85:GetValue("G85_REGVEN"))
 					lRet := .F.
-					Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n„o est· liberado para faturamento.",1,0,,,,,,)	
+					Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n√£o est√° liberado para faturamento.",1,0,,,,,,)	
 				EndIf
 			EndIf
 		EndIf
@@ -2196,7 +2196,7 @@ EndIf
 	
 If lRet 
 
-	// Pesquisa os filhos para atualizar conforme o pai, mas sÛ avalia se o item n„o for filho.
+	// Pesquisa os filhos para atualizar conforme o pai, mas s√≥ avalia se o item n√£o for filho.
 	If Empty(oModelG85:GetValue("G85_ITPRIN"))
 
 		//Atualiza enquanto tiver item filho diferente do pai
@@ -2211,22 +2211,22 @@ If lRet
 			EndIf
 		EndDo
 	
-		//Restaura posiÁ„o alterada pela Seekline
+		//Restaura posi√ß√£o alterada pela Seekline
 		oModelG85:GoLine(cLineAtu)
 	
 	EndIf
 		
-	//N„o precisa fazer quando È para todos, pois È feito uma fez sÛ na TA44ChkAll
+	//N√£o precisa fazer quando √© para todos, pois √© feito uma fez s√≥ na TA44ChkAll
 	If !IsInCallStack('U_XChkAll')
 
-		//Atualiza valor auxiliar que È usado no AddCalc
+		//Atualiza valor auxiliar que √© usado no AddCalc
 		If oModelG85:GetValue("G85_OK")
 			oModelG85:SetValue("G85_VLRAUX",oModelG85:GetValue("G85_VALOR"))
 		Else
 			oModelG85:SetValue("G85_VLRAUX",0)
 		EndIf
 
-		//Atualiza o valor total na G84 //Deixar como ultimo ponta da validaÁ„o
+		//Atualiza o valor total na G84 //Deixar como ultimo ponta da valida√ß√£o
 		If (lOk .And. oModelG85:GetValue("G85_PAGREC") == '1') .Or.;
 			(!lOk .And. oModelG85:GetValue("G85_PAGREC") == '2')
 			oModelG84:SetValue("G84_TOTAL"	,oModelG84:GetValue("G84_TOTAL") - oModelG85:GetValue("G85_VALOR"))
@@ -2234,7 +2234,7 @@ If lRet
 			oModelG84:SetValue("G84_TOTAL"	,oModelG84:GetValue("G84_TOTAL") + oModelG85:GetValue("G85_VALOR"))
 		EndIf
 
-		//SÛ atualiza G84_OK para o item Pai
+		//S√≥ atualiza G84_OK para o item Pai
 		If Empty(oModelG85:GetValue("G85_ITPRIN"))
 			lTemMarcado := oModelG85:SeekLine({{"G85_OK",.T.}})
 		
@@ -2247,7 +2247,7 @@ If lRet
 			oModelG85:GoLine(cLineAtu)	
 		
 			If lAtualiz .And. oView != Nil 
-				FWMsgRun(,{|| oView:Refresh()},  , "Aguarde... atualizando marcaÁ„o dos itens..." ) 
+				FWMsgRun(,{|| oView:Refresh()},  , "Aguarde... atualizando marca√ß√£o dos itens..." ) 
 			EndIf
 		EndIf
 
@@ -2260,10 +2260,10 @@ Return .T.
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44LibReg
-FunÁ„o para liberar os registros bloqueados, caso seja cancelado
+Fun√ß√£o para liberar os registros bloqueados, caso seja cancelado
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2282,10 +2282,10 @@ Return .T.
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44VldChk
-FunÁ„o marcaÁ„o dos itens da G85
+Fun√ß√£o marca√ß√£o dos itens da G85
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2305,10 +2305,10 @@ Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Total
-FunÁ„o seleÁ„o de itens para totalizaÁ„o
+Fun√ß√£o sele√ß√£o de itens para totaliza√ß√£o
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2333,10 +2333,10 @@ Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44ChkAll
-FunÁ„o marcaÁ„o dos itens da G85 conforme G84
+Fun√ß√£o marca√ß√£o dos itens da G85 conforme G84
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2345,16 +2345,16 @@ User Function XChkAll()
 
 Local lRet := .F.
 
-FWMsgRun(,{|| lRet := U_XMrkAll()},  , "Aguarde... atualizando marcaÁ„o dos itens..." ) 
+FWMsgRun(,{|| lRet := U_XMrkAll()},  , "Aguarde... atualizando marca√ß√£o dos itens..." ) 
 
 Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44ChkAll
-FunÁ„o marcaÁ„o dos itens da G85 conforme G84
+Fun√ß√£o marca√ß√£o dos itens da G85 conforme G84
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2387,7 +2387,7 @@ For nX := 1 To oModelG85:Length()
 				oModelG85:LoadValue("G85_OK", lOk)
 			EndIf
 		Else
-			Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n„o est· liberado para faturamento.",1,0,,,,,,)
+			Help(,,"TURA044_FAT_AD",,"Este item esta em Fatura de Adiantamento e n√£o est√° liberado para faturamento.",1,0,,,,,,)
 		EndIf
 	EndIf
 
@@ -2411,7 +2411,7 @@ For nX := 1 To oModelG85:Length()
 		EndCase
 		
 			
-		//Atualiza valor auxiliar que È usado no AddCalc
+		//Atualiza valor auxiliar que √© usado no AddCalc
 		oModelG85:LoadValue("G85_VLRAUX",oModelG85:GetValue("G85_VALOR"))
 	
 	Else
@@ -2464,10 +2464,10 @@ Return .T.
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Grava
-FunÁ„o de gravaÁ„o do Model (Fatura)
+Fun√ß√£o de grava√ß√£o do Model (Fatura)
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2480,7 +2480,7 @@ Local oView		:= FWViewActive()
 
 If oModelG84:Length() == 1 .And. Empty(oModelG84:GetValue("G84_CLIENT"))
 	
-	Help(,,"TURA044_NOFAT",,STR0031,1,0) //"N„o existem registros para faturamento."
+	Help(,,"TURA044_NOFAT",,STR0031,1,0) //"N√£o existem registros para faturamento."
 	If oView != Nil
 		oView:ShowInsertMsg(.F.)
 	EndIf
@@ -2496,13 +2496,13 @@ Return .T.
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44GerFat
-FunÁ„o de GeraÁ„o das Faturas conforme quebra do complemento do cliente
-Esta funÁ„o atualiza o NUMFAT da G84 conforme quebra e gera novas G84, se preciso
-ApÛs isto submete a Fatura ‡ consolidaÁ„o financeira
-ApÛs a consolidaÁ„o grava (commit) o prÛprio Model 
+Fun√ß√£o de Gera√ß√£o das Faturas conforme quebra do complemento do cliente
+Esta fun√ß√£o atualiza o NUMFAT da G84 conforme quebra e gera novas G84, se preciso
+Ap√≥s isto submete a Fatura √† consolida√ß√£o financeira
+Ap√≥s a consolida√ß√£o grava (commit) o pr√≥prio Model 
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -2528,20 +2528,20 @@ Local nColEnt		:= 0
 Local nX	 		:= 0 	//Linha da G84
 Local nY 			:= 0 	//Linha da G85
 Local nZ 			:= 0 	
-Local nK 			:= 0 	//Linhas de cÛpias
+Local nK 			:= 0 	//Linhas de c√≥pias
 Local nW 			:= 0 
 Local nJ 			:= 0 
 Local nH 			:= 0 
 Local aItem 		:= {}
 Local aEntQbr 	:= {} 	//Entidades de quebra
 Local aFatOrdem	:= {}	//Array com conteudo das entidades de quebra de cada item
-Local cX			:= "" 	//Express„o com atributaos para ordenatr array 
-Local cY			:= "" 	//Express„o com atributaos para ordenatr array 
-Local bSortQrb	:= Nil	//Bloco de cÛdigo para ordenaÁ„o do array
-Local lNovaFat	:= .F.	//Flag de controle de geraÁ„o e novas Faturas 
+Local cX			:= "" 	//Express√£o com atributaos para ordenatr array 
+Local cY			:= "" 	//Express√£o com atributaos para ordenatr array 
+Local bSortQrb	:= Nil	//Bloco de c√≥digo para ordena√ß√£o do array
+Local lNovaFat	:= .F.	//Flag de controle de gera√ß√£o e novas Faturas 
 Local lAddQbr 	:= .F.
 Local nFatAtu		:= 0
-Local nLinNova	:= 0	//NumeraÁ„o da linha da nova Fatura (G84)
+Local nLinNova	:= 0	//Numera√ß√£o da linha da nova Fatura (G84)
 Local oModel045	:= Nil 
 Local cFilialFat	:= ''
 Local lG4MCompF	:= IIF( FWModeAccess("G4M",3) == 'C' , .T., .F.)     
@@ -2625,8 +2625,8 @@ For nX := 1 To oModelG84:Length()
 		nQtdeRVs    := 0
 		cRvAux      := ""
 		cChave      := ""
-		lRVMaior	:= .F. //verifica se um unico RV È maior que a quebra por valor - candisani
-		lContinua   := .T. //verifica se um unico RV È maior que a quebra por valor e continua a operaÁ„o - candisani 
+		lRVMaior	:= .F. //verifica se um unico RV √© maior que a quebra por valor - candisani
+		lContinua   := .T. //verifica se um unico RV √© maior que a quebra por valor e continua a opera√ß√£o - candisani 
 		
 		DbselectArea("G67")
 		G67->(DbSetOrder(2)) //Filial + Codigo + Tipo (1 - Venda, 2 - Apuracao) + TpAgru (1 - Quebra, 2 - Totaliza)
@@ -2665,7 +2665,7 @@ For nX := 1 To oModelG84:Length()
 		
 				
 		//+--------------------------------------------------------------------------------
-		//|	Como o array aFatOrdem È dinamico abaixo È definido a referncia de cda coluna
+		//|	Como o array aFatOrdem √© dinamico abaixo √© definido a referncia de cda coluna
 		//|	conforme as quebras definidas no camplemento do cliente
 		//+--------------------------------------------------------------------------------	
 		
@@ -2712,7 +2712,7 @@ For nX := 1 To oModelG84:Length()
 		nFatAtu := Len(aFaturas)
 		
 		//+----------------------------------------------------------------------------------------
-		//|	Se n„o quebra por nada, simplesmente atribui o numero da fatura e n„o cria o aFatOrdem 
+		//|	Se n√£o quebra por nada, simplesmente atribui o numero da fatura e n√£o cria o aFatOrdem 
 		//+----------------------------------------------------------------------------------------
 		If nQtdColuna <= 1 
 			Aadd(aFaturas,{nX,{}}) 
@@ -2744,7 +2744,7 @@ For nX := 1 To oModelG84:Length()
 				Else
 					nG85:= nY
 					
-					//Verifica se possui Filiais distintas para geraÁ„o da fatura
+					//Verifica se possui Filiais distintas para gera√ß√£o da fatura
 					If Empty(cFilialRef)
 						cFilialRef	:= oModelG85:GetValue("G85_FILREF")
 					Else
@@ -2832,7 +2832,7 @@ For nX := 1 To oModelG84:Length()
 						If MsgYesNo("RV maior que o valor de quebra.", "Deseja continuar?")
 							lAddQbr := .T.
 							lContinua := .T.
-						Else //n„o continua a geraÁ„o de fatura e aborta 
+						Else //n√£o continua a gera√ß√£o de fatura e aborta 
 							lAddQbr  := .F.
 							lContinua := .F.
 						Endif	
@@ -2851,17 +2851,17 @@ For nX := 1 To oModelG84:Length()
 		EndIf
 
 		//+------------------------------------------------------------------------------
-		//|	Se quebra por alguma coisa, o array aFatOrdem ter· conteudo, mas sÛ justifica 
-		//| avaliar geraÁ„o de novas NF se tiver mais do que um item 
+		//|	Se quebra por alguma coisa, o array aFatOrdem ter√° conteudo, mas s√≥ justifica 
+		//| avaliar gera√ß√£o de novas NF se tiver mais do que um item 
 		//+------------------------------------------------------------------------------
 		If Len(aFatOrdem) > 0
 
 			//+--------------------------------------------------------------------------------------
-			//|	Criar estrutura do bloco de cÛdigo para ordenar array por todas colunas a partir da 2
+			//|	Criar estrutura do bloco de c√≥digo para ordenar array por todas colunas a partir da 2
 			//+--------------------------------------------------------------------------------------
 			cX := ""
 			cY := ""
-			For nW := 2 To nQtdColuna //SÛ cria aFatOrdem se nQtdColuna for maior que 1, portanto sempre entra no for
+			For nW := 2 To nQtdColuna //S√≥ cria aFatOrdem se nQtdColuna for maior que 1, portanto sempre entra no for
 					cX += "x["+AllTrim(Str(nW))+"]+"
 					cY += "y["+AllTrim(Str(nW))+"]+"
 			Next nW	
@@ -2869,7 +2869,7 @@ For nX := 1 To oModelG84:Length()
 			cX += "PADL(ALLTRIM(STR(x["+AllTrim(Str(1))+"])),"+cTamg85It+",'0')"
 			cY += "PADL(ALLTRIM(STR(y["+AllTrim(Str(1))+"])),"+cTamg85It+",'0')"
 
-			If !lQbrVlr //  se for por valor n„o ordena - candisani
+			If !lQbrVlr //  se for por valor n√£o ordena - candisani
 				bSortQrb := &("{|x,y| "+ cX +" < "+ cY +"}")
 
 				aSort(aFatOrdem,,,bSortQrb)
@@ -2884,16 +2884,16 @@ For nX := 1 To oModelG84:Length()
 				lNovaFat := .F.
 				If !lQbrVlr // candisani 
 					//+--------------------------------------------------------------------------
-					//|	Avalia se tem algum atributo diferente do registro anterior ou se È o primeiro
+					//|	Avalia se tem algum atributo diferente do registro anterior ou se √© o primeiro
 					//+--------------------------------------------------------------------------
 					If nK > 1
-						aItem := aFatOrdem[nK-1] //Atribui a linha anterior ao Aux1 para comparaÁ„o
+						aItem := aFatOrdem[nK-1] //Atribui a linha anterior ao Aux1 para compara√ß√£o
 						nAuxQbr++
 						If aScan(aRVs, {|x| x[1] == oModelG85:GetValue('G85_FILREF') .And. x[2] == oModelG85:GetValue('G85_REGVEN') .And. x[3] == oModelG85:GetValue('G85_ITVEND')}) == 0
 							aAdd(aRVs, {oModelG85:GetValue('G85_FILREF'), oModelG85:GetValue('G85_REGVEN'), oModelG85:GetValue('G85_ITVEND')})
 						EndIf
 						For nJ := 2 To Len(aItem)
-							If !(aItem[nJ] == aFatOrdem[nK][nJ]) .OR. IIf(lQbrQtd .And. nJ == nColQbr, TA044QbrQt(nQtdQbr,@nAuxQbr,aFatOrdem[nK][1],oModelG85,aRVs), .F.) //Testa se os conteudos s„o diferentes
+							If !(aItem[nJ] == aFatOrdem[nK][nJ]) .OR. IIf(lQbrQtd .And. nJ == nColQbr, TA044QbrQt(nQtdQbr,@nAuxQbr,aFatOrdem[nK][1],oModelG85,aRVs), .F.) //Testa se os conteudos s√£o diferentes
 								lNovaFat := .T. //Se diferente precisa gerar nova fatura
 								nAuxQbr := 1
 								aRVs    := {}
@@ -2906,10 +2906,10 @@ For nX := 1 To oModelG84:Length()
 					EndIf
 	
 					//+--------------------------------------------------------------------------
-					//| Gera novo item para geraÁ„o de Fatura
+					//| Gera novo item para gera√ß√£o de Fatura
 					//+--------------------------------------------------------------------------
 					If lNovaFat
-						Aadd(aFaturas,{nX,{}}) //Se È novos itens, gera array para geraÁ„o de novas G84 posteriormente			
+						Aadd(aFaturas,{nX,{}}) //Se √© novos itens, gera array para gera√ß√£o de novas G84 posteriormente			
 					EndIf
 					
 					//+--------------------------------------------------------------------------
@@ -2919,7 +2919,7 @@ For nX := 1 To oModelG84:Length()
 					
 				ElseIf lQbrVlr .AND. lContinua 
 
-					//quebra por valor enquanto valor for menor ou igual ao valor maximo por fatura n„o gera uma nova fatura
+					//quebra por valor enquanto valor for menor ou igual ao valor maximo por fatura n√£o gera uma nova fatura
 					If lContinua .AND. !lRVMaior 
 						
 						nValor := nValor + aFatOrdem[nK][2]
@@ -2958,7 +2958,7 @@ For nX := 1 To oModelG84:Length()
 				
 					If lContinua 
 						If lNovaFat
-							Aadd(aFaturas,{nX,{}}) //Se È novos itens, gera array para geraÁ„o de novas G84 posteriormente
+							Aadd(aFaturas,{nX,{}}) //Se √© novos itens, gera array para gera√ß√£o de novas G84 posteriormente
 							
 							If nK == 1
 								Aadd(aFaturas[Len(aFaturas),2],aFatOrdem[nK][1])
@@ -2975,8 +2975,8 @@ For nX := 1 To oModelG84:Length()
 		EndIf
 		
 		//+--------------------------------------------------------------------------
-		//| Envoca Rotina de ConsolidaÁ„o Financeira
-		//| E copia G84 para geraÁ„o da fatura atravÈs do TURA045
+		//| Envoca Rotina de Consolida√ß√£o Financeira
+		//| E copia G84 para gera√ß√£o da fatura atrav√©s do TURA045
 		//+--------------------------------------------------------------------------	
 		If lContinua
 			oModel045 := FwLoadModel("TURA045")
@@ -2987,9 +2987,9 @@ For nX := 1 To oModelG84:Length()
 				aCopyValues := U_TURxVls("G84_DETAIL", .T.,{},IIf(Len(aFaturas[nH,2])>0,{{"G85_DETAIL",aFaturas[nH,2]}},{}))
 				
 				//+--------------------------------------------------------------------------
-				//| Verifica se o complemento esta compartilhado e n„o possuir quebra por    |
-				//| Filial e possuir itens da fatura com diferentes filiais, neste caso ser· |
-				//| utilizado G4M_FILFAT,caso contr·rio ser· utilizado a filial do item.     |
+				//| Verifica se o complemento esta compartilhado e n√£o possuir quebra por    |
+				//| Filial e possuir itens da fatura com diferentes filiais, neste caso ser√° |
+				//| utilizado G4M_FILFAT,caso contr√°rio ser√° utilizado a filial do item.     |
 				//+--------------------------------------------------------------------------	
 				If lG4MCompF .AND. !lQbrFil .AND. lFilDifer
 					
@@ -2997,7 +2997,7 @@ For nX := 1 To oModelG84:Length()
 						cFilAnt := cFilialFat
 						U_X44NewFa(oModel045,aCopyValues,aFaturas[nH],lQbrFil,lQbrGrp,lQbrSol,lQbrEnt,aEntQbr,lQbrRV,lQbrQtd,lQbrVlr)
 					Else
-						Help(,,"TURA044_FILFAT",,I18N(STR0055, {cCodCmp,oModel:GetModel("G84_DETAIL"):GetValue("G84_CLIENT",nH)+"/"+oModel:GetModel("G84_DETAIL"):GetValue("G84_LOJA",nH)+" - "+oModel:GetModel("G84_DETAIL"):GetValue("G84_NOME",nH) }),1,0) //"Complemento #1 do Cliente #2 est· compartilhado, porÈm n„o possui Filial de Fatura preenchido.N„o ser· gerada a fatura."
+						Help(,,"TURA044_FILFAT",,I18N(STR0055, {cCodCmp,oModel:GetModel("G84_DETAIL"):GetValue("G84_CLIENT",nH)+"/"+oModel:GetModel("G84_DETAIL"):GetValue("G84_LOJA",nH)+" - "+oModel:GetModel("G84_DETAIL"):GetValue("G84_NOME",nH) }),1,0) //"Complemento #1 do Cliente #2 est√° compartilhado, por√©m n√£o possui Filial de Fatura preenchido.N√£o ser√° gerada a fatura."
 					EndIf
 				Else
 					//nG85 := oModel:GetModel("G85_DETAIL"):GetLine()		    
@@ -3025,7 +3025,7 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44GerG86
-FunÁ„o para geraÁ„o da G86 (Quebra de Fatura)
+Fun√ß√£o para gera√ß√£o da G86 (Quebra de Fatura)
 
 @type 		Function
 @author 	Jose Domingos Caldana Jr
@@ -3097,7 +3097,7 @@ Local cPrefix		:= ""
 
 If oModel045:Activate()
 	
-	aCopyValues[1] := "G84_MASTER" //Alterado o nome do Model pois È diferente entre as rotinas
+	aCopyValues[1] := "G84_MASTER" //Alterado o nome do Model pois √© diferente entre as rotinas
 	
 	//+--------------------------------------------------------------------------
 	//|Copia todo o registro da fatura para o model do TURA045
@@ -3191,10 +3191,10 @@ Return lRet
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44LogBlq
-FunÁ„o para geraÁ„o do Log de G4C bloqueada
+Fun√ß√£o para gera√ß√£o do Log de G4C bloqueada
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -3229,10 +3229,10 @@ Return cLog
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Calc
-FunÁ„o para calculo do total selecionado
+Fun√ß√£o para calculo do total selecionado
 
 @type 		Function
-@author 	JosÈ Domingos Caldana Jr
+@author 	Jos√© Domingos Caldana Jr
 @since 		30/11/2015
 @version 	12.1.7
 /*/
@@ -3263,10 +3263,10 @@ Return nRet
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} TA44NoAlt() 
-Rotina para inibir a pergunta se deseja salvar ou n„o 
+Rotina para inibir a pergunta se deseja salvar ou n√£o 
 
-@author JosÈ Domingos Caldana Jr
-@since†21/10/2015
+@author Jos√© Domingos Caldana Jr
+@since¬†21/10/2015
 @version 12.1.7
 /*/
 //-------------------------------------------------------------------
@@ -3277,7 +3277,7 @@ Local oModelG84	:= oModel:GetModel("G84_DETAIL")
 Local lRet 		:= .T.
 	
 If oModelG84:Length() <> 1 .Or. !Empty(oModelG84:GetValue("G84_CMPCLI"))
-	lRet := FwAlertYesNo(STR0042,STR0043) //"Deseja realmente cancelar a geraÁ„o das Faturas?"//"Cancelar Faturamento?"
+	lRet := FwAlertYesNo(STR0042,STR0043) //"Deseja realmente cancelar a gera√ß√£o das Faturas?"//"Cancelar Faturamento?"
 EndIf 
 
 If lRet
@@ -3289,10 +3289,10 @@ Return lRet
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} TA44ValFat() 
-Rotina para validar geraÁ„o das faturas
+Rotina para validar gera√ß√£o das faturas
 
-@author JosÈ Domingos Caldana Jr
-@since†21/10/2015
+@author Jos√© Domingos Caldana Jr
+@since¬†21/10/2015
 @version 12.1.7
 /*/
 //-------------------------------------------------------------------
@@ -3317,15 +3317,15 @@ For nX := 1 To oModelG84:Length()
 	oModelG84:GoLine(nX)
 	If oModelG84:GetValue("G84_OK") 
 		If Empty(oModelG84:GetValue("G84_CONDPG"))
-			Help(,,"TA44_SEMCP",,STR0044,1,0,,,,,,{STR0045}) //"Existem itens selecionados para faturamento sem condiÁ„o de pagamento." //"Informe a condiÁ„o de pagamento desejada."
+			Help(,,"TA44_SEMCP",,STR0044,1,0,,,,,,{STR0045}) //"Existem itens selecionados para faturamento sem condi√ß√£o de pagamento." //"Informe a condi√ß√£o de pagamento desejada."
 			lRet := .F.
 			Exit
 		ElseIf !SE4->(DbSeek(xFilial("SE4") + oModelG84:GetValue("G84_CONDPG")))
-			Help(,,"TA44_SEMCPFIL",,STR0046,1,0,,,,,,{STR0047}) //"Existem itens selecionados para faturamento que possuem a condiÁ„o de pagamento inv·lida para a filial corrente." //"Informe uma condiÁ„o de pagamento v·lida para a filial corrente e tente novamente."
+			Help(,,"TA44_SEMCPFIL",,STR0046,1,0,,,,,,{STR0047}) //"Existem itens selecionados para faturamento que possuem a condi√ß√£o de pagamento inv√°lida para a filial corrente." //"Informe uma condi√ß√£o de pagamento v√°lida para a filial corrente e tente novamente."
 			lRet := .F.
 			Exit			
 		ElseIf oModelG84:GetValue("G84_MOEDA") <> "01"
-			U_TurHelp("Faturamento n„o habilitado para outras moedas.","Altere o RV para moeda 01.","TA44_MOEDA") //"Faturamento n„o habilitado para outras moedas." 
+			U_TurHelp("Faturamento n√£o habilitado para outras moedas.","Altere o RV para moeda 01.","TA44_MOEDA") //"Faturamento n√£o habilitado para outras moedas." 
 			lRet := .F.
 			Exit	
 		EndIf
@@ -3335,7 +3335,7 @@ For nX := 1 To oModelG84:Length()
 			For nY := 1 To oModelG85:Length()
 				oModelG85:GoLine(nY)
 				If oModelG85:GetValue("G85_OK") .And. Empty(oModelG85:GetValue("G85_NATURE"))  	
-					Help(,,"TA44_SEM_NAT",,STR0048,1,0,,,,,,{STR0049}) //"Existem itens selecionados para faturamento que n„o possuem Natureza."//"Informe uma Natureza v·lida e tente novamente."         
+					Help(,,"TA44_SEM_NAT",,STR0048,1,0,,,,,,{STR0049}) //"Existem itens selecionados para faturamento que n√£o possuem Natureza."//"Informe uma Natureza v√°lida e tente novamente."         
 					lRet := .F.
 					Exit
 				EndIf
@@ -3360,7 +3360,7 @@ For nX := 1 To oModelG84:Length()
 					
 					If (cAliasDupl)->(! EOF())
 						lRet := .F.
-						U_TurHelp(u_TURX3Title("G85_FILIAL")+": "+oModelG85:GetValue("G85_FILREF",nY)+u_TURX3Title("G85_IDIF")+": "+oModelG85:GetValue("G85_IDIF",nY),"Item n„o ser· faturado. Avaliar duplicidade.","Item Duplicado")
+						U_TurHelp(u_TURX3Title("G85_FILIAL")+": "+oModelG85:GetValue("G85_FILREF",nY)+u_TURX3Title("G85_IDIF")+": "+oModelG85:GetValue("G85_IDIF",nY),"Item n√£o ser√° faturado. Avaliar duplicidade.","Item Duplicado")
 						Exit
 					EndIf
 					
@@ -3376,7 +3376,7 @@ For nX := 1 To oModelG84:Length()
 				EndIf						
 			Next nY
 			
-			// -- Valida valor mÌnimo para geraÁ„o de fatura
+			// -- Valida valor m√≠nimo para gera√ß√£o de fatura
 			If nFatVlrMin > 0 .And. (U_TA44RTpFat() == TP_VENDA)
 				If nTotal <= nFatVlrMin
 					Help(,,"TA44_FATVLR",,STR0064,1,0,,,,,,{STR0065})
@@ -3403,10 +3403,10 @@ Return lRet
 //-------------------------------------------------------------------
 /*/{Protheus.doc} TA044MkAll 
 
-FunÁ„o para marcar/desmarcar todos os clientes para faturamento
+Fun√ß√£o para marcar/desmarcar todos os clientes para faturamento
 
 @author Thiago Tavares
-@since†17/11/2016
+@since¬†17/11/2016
 @version 12.1.13
 /*/
 //-------------------------------------------------------------------
@@ -3443,8 +3443,8 @@ Return()
 @author osmar.junior
 @since 09/03/2017
 @version 1.0
-@param nQtdQbr, numÈrico, Quantidade para quebra
-@param nAuxQbr, numÈrico, Referencia do item
+@param nQtdQbr, num√©rico, Quantidade para quebra
+@param nAuxQbr, num√©rico, Referencia do item
 @return ${return}, ${return_description}
 @example
 (examples)
@@ -3481,11 +3481,11 @@ Return lRet
 //-------------------------------------------------------------------
 /*/{Protheus.doc} TA044VldEA 
 
-FunÁ„o que valida a entidade adicional do rateio de um IV de acerto 
+Fun√ß√£o que valida a entidade adicional do rateio de um IV de acerto 
 com a entidade adicional do IV de origem
 
 @author Thiago Tavares
-@since†06/04/2016
+@since¬†06/04/2016
 @version 12.1.14
 /*/
 //-------------------------------------------------------------------
@@ -3537,7 +3537,7 @@ Return lRet
 
 
 /*/{Protheus.doc} cExpFil
-Retorna express„o para utilizaÁ„o na query de venda
+Retorna express√£o para utiliza√ß√£o na query de venda
 @type function
 @author osmar.junior
 @since 27/04/2017
@@ -3577,7 +3577,7 @@ EndIf
 
 Return cRet
 
-//Retorna conte˙do do nTpfat 
+//Retorna conte√∫do do nTpfat 
 User Function XT44SETTpFat(nTpfat)
 _nTpFat     	:= nTpfat
 
@@ -3585,7 +3585,7 @@ Return
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44VldFA
-FunÁ„o para validar se o item esta em uma Fatura de Adiantamento com RA disponivel
+Fun√ß√£o para validar se o item esta em uma Fatura de Adiantamento com RA disponivel
 
 /*/
 //+----------------------------------------------------------------------------------------
@@ -3617,7 +3617,7 @@ Return lRetorno
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Refat
-FunÁ„o de chamada de refaturamento
+Fun√ß√£o de chamada de refaturamento
 
 @type 		Function
 @author 	Rogerio O Candisani
@@ -3651,7 +3651,7 @@ Return G84->(RecNo())
 
 //+----------------------------------------------------------------------------------------
 /*/{Protheus.doc} TA44Refat
-FunÁ„o de refaturamento
+Fun√ß√£o de refaturamento
 
 @type 		Function
 @author 	Rogerio O Candisani
@@ -3768,8 +3768,8 @@ oModelG84:LoadValue("G84_CMPCLI", cCmpCli)
 oModelG84:LoadValue("G84_STATUS", "1")	
 oModelG84:LoadValue("G84_TPFAT" , cTpFat)	
 
-//verificar os itens j· faturados na G85
-//verificar se os itens cancelados j· foram faturados em outra nota
+//verificar os itens j√° faturados na G85
+//verificar se os itens cancelados j√° foram faturados em outra nota
 	
 G85->(DbSetOrder(1))
 If G85->(DbSeek(cFilialG84 + cPrefix + cNumFat))	
@@ -3826,7 +3826,7 @@ If G85->(DbSeek(cFilialG84 + cPrefix + cNumFat))
 	Enddo
 EndIf
 
-//gravaÁ„o do item G85 para os itens n„o faturados
+//grava√ß√£o do item G85 para os itens n√£o faturados
 nItemG85 := 1	
 
 For nX:= 1 to len(aItemG85)
