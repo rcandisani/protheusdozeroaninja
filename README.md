@@ -1,4 +1,5 @@
 # protheusdozeroaninja
+Um dos nossos projetos e mais fontes públicos para vocês utilizarem como exemplos
 Protheus do ZERO a Ninja
 Rotina para criar via webservice uma importação de notas fiscais (Xml)
 A princípio começou como um fonte específico para um aluno da mentoria.
@@ -8,3 +9,5 @@ Precisa evoluir este projeto pois a integração ainda ocorre de forma primitiva
 Bom estudo ;)!
 Informe o que achou do projeto.
 Ele está sempre em melhoria.
+Se quiserem saber mais sobre os meus projetos e cursos 
+Acesse: https://protheusdozeroaninja.clickfunnels.com/assinatura-protheus-do-zero-a-ninja_member
