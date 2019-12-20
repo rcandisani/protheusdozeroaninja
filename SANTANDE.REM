@@ -1,0 +1,72 @@
+Codigo Registro00100100                                                           
+Codigo Remessa 00200201                                                           
+Literal Remessa0030090"REMESSA"                                                   
+Codigo Servico 010011001                                                          
+Literal Servico0120260"COBRANCA"                                                  
+Cod.AG.Cedente 0270300                                                            
+Conta Mvto Ced.0310380999999999                                                   
+Conta Cobr.Ced.0390460111111111                                                   
+Nome Empresa   0470750SUBSTR(SM0->M0_NOME,1,30)                                   
+Codigo do Banco0770790353                                                         
+Nome do Banco  0800940"SANTANDER"                                                 
+Data Gravacao  0951000GRAVADATA(DDATABASE,.F.)                                    
+ZEROS          10111600000000000000000                                            
+BRANCOS        1173910                                                            
+Num.Sequencial 3954000000001                                                      
+Codigo Registro00100101                                                           
+Codigo Inscr   002003002                                                          
+Numero Inscr   0040170SUBSTR(SM0->M0_CGC,1,14)                                    
+Cod.Ag.Cedente 01802109999                                                        
+Cta Mvto Cedent022029011111111                                                    
+Cta Cobr.cedent030037099999999                                                    
+N.contr. Cedent0380620                                                            
+Nosso Numero   0630700NossoNum()                                                  
+Dt Desconto    0710760                                                            
+Carteira       0770770                                                            
+Codigo Ocorrenc07807800                                                           
+% p/atraso     0790822                                                            
+Un.Moeda Corren083084000                                                          
+Vl.Tit.outra Mo0850975                                                            
+Brancos        0981010                                                            
+Dt.Cobr.Multa  1021070000000                                                      
+Codigo Carteira1081080SE1->E1_SITUACA                                             
+Cod.Ocorrencia 1091100SE1->E1_OCORREN                                             
+Num.Titulo     1111200SE1->E1_PREFIXO+SE1->E1_NUM+SE1->E1_PARCELA                 
+Data Vencto    1211260GravaData(SE1->E1_VENCREA,.F.)                              
+Vlr Titulo     1271392MOEDA(SE1->E1_VALOR,1,"R")                                  
+Num.Banco      1401420353                                                         
+Cod.Ag.Cobrador143147000000                                                       
+Especie Documen1481490TABELA("17",SUBSTR(SE1->E1_TIPO,1,2))                       
+Tipo Aceite    1501500"N"                                                         
+Data Emissao   1511560GRAVADATA(SE1->E1_EMISSAO,.F.)                              
+Instrucao 1    1571580SE1->E1_INSTR1                                              
+Instrucao 2    1591600SE1->E1_INSTR2                                              
+Mora por dia   1611732SE1->E1_VALJUR                                              
+Dt.Lim.p/Desc. 1741790                                                            
+Vlr.Desc.Conced1801922                                                            
+Valor IOF      1932055                                                            
+Abatim.ou Desc.2062182                                                            
+Tipo Inscr.    219220002                                                          
+CGC do Sacado  2212340Substr(SA1->A1_CGC,1,14)                                    
+Nome do Sacado 2352740SUBSTR(SA1->A1_NOME,1,40)                                   
+End. do Sacado 2753140SUBSTR(SA1->A1_END,1,40)                                    
+Bairro         3153260SUBSTR(SA1->A1_BAIRRO,1,12)                                 
+Cep do Sacado  3273310SUBSTR(SA1->A1_CEP,1,5)                                     
+Complemento Cep3323340SUBSTR(SA1->A1_CEP,6,3)                                     
+Municipio Sacad3353490SUBSTR(SA1->A1_MUN,1,15)                                    
+UF do Sacado   3503510SA1->A1_EST                                                 
+Sacador/Avalist3523810                                                            
+Brancos        3823910                                                            
+Num.dias p/prot3923930                                                            
+Branco         3943940                                                            
+Num.Seq.do Reg.3954000incrementa()                                                
+Codigo Registro00100106                                                           
+Uso do Banco   0020170                                                            
+Cod.Ag.Cedente 01802105555                                                        
+Cta Mvto Cedent022029044444444                                                    
+Cta Cobr.Cedent030037033333333                                                    
+Uso do Banco   0380470                                                            
+Sub.Seq.do Reg.048049001                                                          
+Mens.var.Tit.  0500990                                                            
+Uso do Banco   1003940                                                            
+Num.Seq.Reg.   3954000incrementa()                                                
