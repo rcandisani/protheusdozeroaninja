@@ -10,4 +10,4 @@ Bom estudo ;)!
 Informe o que achou do projeto.
 Ele está sempre em melhoria.
 Se quiserem saber mais sobre os meus projetos e cursos 
-Acesse: https://protheusdozeroaninja.clickfunnels.com/assinatura-protheus-do-zero-a-ninja_member
+Acesse: https://protheusdozeroaninja.bitrix24.site/
